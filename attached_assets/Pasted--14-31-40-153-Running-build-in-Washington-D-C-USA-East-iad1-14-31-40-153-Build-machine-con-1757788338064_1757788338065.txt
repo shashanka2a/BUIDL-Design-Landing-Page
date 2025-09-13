@@ -1,0 +1,38 @@
+[14:31:40.153] Running build in Washington, D.C., USA (East) – iad1
+[14:31:40.153] Build machine configuration: 2 cores, 8 GB
+[14:31:40.167] Cloning github.com/shashanka2a/BUIDL-Design-Landing-Page (Branch: main, Commit: a750646)
+[14:31:40.302] Previous build caches not available
+[14:31:42.245] Cloning completed: 2.077s
+[14:31:42.601] Running "vercel build"
+[14:31:43.017] Vercel CLI 47.1.1
+[14:31:43.349] WARNING: You should not upload the `.next` directory.
+[14:31:43.356] Installing dependencies...
+[14:32:02.025] 
+[14:32:02.025] added 508 packages in 18s
+[14:32:02.026] 
+[14:32:02.026] 157 packages are looking for funding
+[14:32:02.026]   run `npm fund` for details
+[14:32:02.094] Detected Next.js version: 14.2.32
+[14:32:02.100] Running "npm run build"
+[14:32:02.263] 
+[14:32:02.264] > buidl-design-landing@0.1.0 build
+[14:32:02.264] > next build
+[14:32:02.264] 
+[14:32:02.912]   ▲ Next.js 14.2.32
+[14:32:02.912] 
+[14:32:02.913]    Skipping linting
+[14:32:02.913]    Checking validity of types ...
+[14:32:09.348] Failed to compile.
+[14:32:09.348] 
+[14:32:09.349] ./src/components/ui/carousel.tsx:5:8
+[14:32:09.349] Type error: Module '"lucide-react"' has no exported member 'UseEmblaCarouselType'.
+[14:32:09.349] 
+[14:32:09.349] [0m [90m 3 |[39m [36mimport[39m [33m*[39m [36mas[39m [33mReact[39m [36mfrom[39m [32m"react"[39m[33m;[39m[0m
+[14:32:09.349] [0m [90m 4 |[39m [36mimport[39m useEmblaCarousel[33m,[39m {[0m
+[14:32:09.349] [0m[31m[1m>[22m[39m[90m 5 |[39m   type [33mUseEmblaCarouselType[39m[33m,[39m[0m
+[14:32:09.349] [0m [90m   |[39m        [31m[1m^[22m[39m[0m
+[14:32:09.349] [0m [90m 6 |[39m } [36mfrom[39m [32m"lucide-react"[39m[33m;[39m[0m
+[14:32:09.349] [0m [90m 7 |[39m [36mimport[39m { [33mArrowLeft[39m[33m,[39m [33mArrowRight[39m } [36mfrom[39m [32m"lucide-react"[39m[33m;[39m[0m
+[14:32:09.349] [0m [90m 8 |[39m[0m
+[14:32:09.369] Next.js build worker exited with code: 1 and signal: null
+[14:32:09.398] Error: Command "npm run build" exited with 1
