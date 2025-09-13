@@ -2,6 +2,8 @@ import Head from 'next/head'
 import { Hero } from '../src/components/Hero'
 import { Features } from '../src/components/Features'
 import { Header } from '../src/components/Header'
+import { HowItWorks } from '../src/components/HowItWorks'
+import { Footer } from '../src/components/Footer'
 
 export default function HomePage() {
   return (
@@ -18,7 +20,9 @@ export default function HomePage() {
         <main>
           <Hero />
           <Features />
+          <HowItWorks />
         </main>
+        <Footer />
       </div>
     </>
   )
