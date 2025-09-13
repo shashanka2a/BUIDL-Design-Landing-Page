@@ -1,3 +1,5 @@
+import { AnimatedWorkflow } from './AnimatedWorkflow'
+
 export function HowItWorks() {
   return (
     <section className="py-24 bg-gradient-to-br from-muted/30 to-background">
@@ -14,11 +16,7 @@ export function HowItWorks() {
         <div className="max-w-5xl mx-auto">
           {/* Generated Illustration */}
           <div className="mb-16 text-center">
-            <img 
-              src="/How_it_works_workflow_7a6de58e.png" 
-              alt="How it works - From prompt to product workflow illustration"
-              className="w-full max-w-4xl mx-auto rounded-2xl shadow-2xl"
-            />
+            <AnimatedWorkflow />
           </div>
           
           {/* Steps */}
