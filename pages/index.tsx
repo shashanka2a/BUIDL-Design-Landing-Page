@@ -9,8 +9,9 @@ export default function HomePage() {
   return (
     <>
       <Head>
-        <title>BUIDL Design Landing</title>
-        <meta name="description" content="From Prompt to Product - Transform your ideas into beautiful, functional designs with AI-powered tools. Build faster, design smarter, create better." />
+        <title>#buidl - AI Design Platform | From Prompt to Product | No-Code Design Tool</title>
+        <meta name="description" content="Transform ideas into beautiful designs with #buidl - the AI-powered design platform. From prompt to product in minutes. No-code design tool for creators, developers, and entrepreneurs." />
+        <meta name="keywords" content="AI design, no-code design, prompt to product, design automation, AI tools, web design, app design, rapid prototyping, design platform, creative AI" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

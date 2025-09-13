@@ -8,10 +8,10 @@ export function Footer() {
               <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-sm">B</span>
               </div>
-              <span className="font-bold text-xl">buidl.design</span>
+              <span className="font-bold text-xl">#buidl</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              From prompt to product, powered by AI.
+              From prompt to product, powered by #buidl.
             </p>
           </div>
           
@@ -23,7 +23,7 @@ export function Footer() {
         </div>
         
         <div className="border-t mt-12 pt-8 text-center text-sm text-muted-foreground">
-          © 2024 buidl.design. All rights reserved.
+          © 2024 #buidl. All rights reserved.
         </div>
       </div>
     </footer>

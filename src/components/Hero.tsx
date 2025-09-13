@@ -47,7 +47,7 @@ export function Hero() {
           </h1>
           
           <p className="text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
-            Transform your ideas into beautiful, functional designs with AI-powered tools. 
+            Transform your ideas into beautiful, functional designs with #buidl. 
             Build faster, design smarter, create better.
           </p>
           
