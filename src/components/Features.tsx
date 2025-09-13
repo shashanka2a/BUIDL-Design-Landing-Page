@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/
 const features = [
   {
     title: 'AI-Powered Design',
-    description: 'Transform text prompts into stunning designs with cutting-edge AI technology.',
+    description: 'Transform text prompts into stunning designs instantly.',
     icon: (
       <svg viewBox="0 0 60 60" className="w-12 h-12">
         <rect x="10" y="20" width="40" height="30" rx="4" fill="#3b82f6" opacity="0.1" stroke="#3b82f6" strokeWidth="2"/>
@@ -17,7 +17,7 @@ const features = [
   },
   {
     title: 'Rapid Prototyping',
-    description: 'Build functional prototypes in minutes, not hours. Iterate quickly and efficiently.',
+    description: 'Build functional prototypes in minutes, not hours.',
     icon: (
       <svg viewBox="0 0 60 60" className="w-12 h-12">
         <circle cx="30" cy="30" r="20" fill="none" stroke="#10b981" strokeWidth="3" strokeDasharray="10,5"/>
@@ -29,7 +29,7 @@ const features = [
   },
   {
     title: 'Smart Components',
-    description: 'Pre-built, customizable components that adapt to your design system automatically.',
+    description: 'Pre-built components that adapt to your design system.',
     icon: (
       <svg viewBox="0 0 60 60" className="w-12 h-12">
         <rect x="15" y="15" width="12" height="12" rx="2" fill="#f59e0b" opacity="0.2" stroke="#f59e0b" strokeWidth="2"/>
@@ -43,7 +43,7 @@ const features = [
   },
   {
     title: 'Export Anywhere',
-    description: 'Export your designs as code, images, or directly to your favorite design tools.',
+    description: 'Export as code, images, or to your favorite tools.',
     icon: (
       <svg viewBox="0 0 60 60" className="w-12 h-12">
         <rect x="15" y="10" width="30" height="20" rx="3" fill="#8b5cf6" opacity="0.1" stroke="#8b5cf6" strokeWidth="2"/>

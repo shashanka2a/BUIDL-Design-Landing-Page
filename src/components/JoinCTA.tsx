@@ -37,16 +37,12 @@ export function JoinCTA() {
             </h2>
             
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Join thousands of creators who are already using buidl.design to bring their ideas to life. 
-              Start your journey from prompt to product today.
+              Join thousands of creators building with buidl.design.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-              <Button size="lg" className="text-lg px-8 py-6 min-w-[200px]">
+            <div className="flex justify-center mb-8">
+              <Button size="lg" className="text-lg px-10 py-7 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 transition-all duration-200 hover:scale-105 hover:shadow-lg">
                 Get Started Free
-              </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-6 min-w-[200px]">
-                Book a Demo
               </Button>
             </div>
             
@@ -60,7 +56,7 @@ export function JoinCTA() {
       {/* Footer */}
       <footer className="mt-24 border-t bg-background/80 backdrop-blur">
         <div className="container px-4 mx-auto py-12">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="text-center space-y-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
                 <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
@@ -73,34 +69,10 @@ export function JoinCTA() {
               </p>
             </div>
             
-            <div>
-              <h4 className="font-semibold mb-4">Product</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-primary transition-colors">Features</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Pricing</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Templates</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Changelog</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-4">Community</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-primary transition-colors">Discord</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">GitHub</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Twitter</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Blog</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-4">Support</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-primary transition-colors">Documentation</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Help Center</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Contact</a></li>
-                <li><a href="#" className="hover:text-primary transition-colors">Status</a></li>
-              </ul>
+            <div className="flex justify-center space-x-8">
+              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Docs</a>
+              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Discord</a>
+              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Twitter</a>
             </div>
           </div>
           
