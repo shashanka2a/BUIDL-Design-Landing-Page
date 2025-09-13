@@ -34,7 +34,7 @@ export function Hero() {
               <circle cx="100" cy="300" r="2" fill="currentColor" className="text-muted-foreground opacity-25" />
               
               {/* Main illustration */}
-              <rect x="100" y="150" width="400" height="200" rx="20" fill="currentColor" className="text-card" stroke="currentColor" strokeWidth="2" className="text-border"/>
+              <rect x="100" y="150" width="400" height="200" rx="20" fill="currentColor" className="text-card" stroke="currentColor" strokeWidth="2"/>
               
               {/* Screen content - design elements */}
               <rect x="120" y="170" width="80" height="12" rx="6" fill="#3b82f6" opacity="0.8" />

@@ -1,8 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { GripVerticalIcon } from "$1";
-import * as ResizablePrimitive from "$1";
+import { GripVerticalIcon } from "lucide-react";
+import * as ResizablePrimitive from "lucide-react";
 
 import { cn } from "./utils";
 

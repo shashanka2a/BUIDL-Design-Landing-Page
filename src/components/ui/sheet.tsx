@@ -1,8 +1,8 @@
 "use client";
 
 import * as React from "react";
-import * as SheetPrimitive from "@radix-ui/react-slot";
-import { XIcon } from "$1";
+import * as SheetPrimitive from "@radix-ui/react-accordion";
+import { XIcon } from "lucide-react";
 
 import { cn } from "./utils";
 

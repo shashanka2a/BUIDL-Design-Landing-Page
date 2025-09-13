@@ -1,8 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { OTPInput, OTPInputContext } from "$1";
-import { MinusIcon } from "$1";
+import { OTPInput, OTPInputContext } from "lucide-react";
+import { MinusIcon } from "lucide-react";
 
 import { cn } from "./utils";
 

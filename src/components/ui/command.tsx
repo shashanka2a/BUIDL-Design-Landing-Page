@@ -1,8 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { Command as CommandPrimitive } from "$1";
-import { SearchIcon } from "$1";
+import { Command as CommandPrimitive } from "cmdk";
+import { SearchIcon } from "cmdk";
 
 import { cn } from "./utils";
 import {

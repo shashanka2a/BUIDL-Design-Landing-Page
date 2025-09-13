@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import * as RechartsPrimitive from "$1";
+import * as RechartsPrimitive from "lucide-react";
 
 import { cn } from "./utils";
 

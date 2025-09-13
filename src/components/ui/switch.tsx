@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import * as SwitchPrimitive from "@radix-ui/react-slot";
+import * as SwitchPrimitive from "@radix-ui/react-accordion";
 
 import { cn } from "./utils";
 

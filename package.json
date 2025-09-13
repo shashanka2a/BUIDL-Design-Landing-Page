@@ -5,9 +5,9 @@
   "scripts": {
     "dev": "next dev -H 0.0.0.0 -p 5000",
     "build": "next build",
-    "start": "next start -H 0.0.0.0 -p 5000",
+    "preview": "npx serve -s out -l 5000",
     "lint": "next lint",
-    "export": "next build"
+    "clean": "rimraf .next out build"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.3",

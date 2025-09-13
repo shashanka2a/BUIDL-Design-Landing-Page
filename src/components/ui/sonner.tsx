@@ -1,7 +1,7 @@
 "use client";
 
-import { useTheme } from "$1";
-import { Toaster as Sonner, ToasterProps } from "$1";
+import { useTheme } from "lucide-react";
+import { Toaster as Sonner, ToasterProps } from "lucide-react";
 
 const Toaster = ({ ...props }: ToasterProps) => {
   const { theme = "system" } = useTheme();
