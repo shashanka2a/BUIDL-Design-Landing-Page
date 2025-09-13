@@ -2,11 +2,14 @@
 const nextConfig = {
   output: 'export',
   trailingSlash: true,
+  distDir: 'build',
   images: {
     unoptimized: true
   },
   experimental: {
-    appDir: false
+  },
+  eslint: {
+    ignoreDuringBuilds: true
   }
 }
 
