@@ -11,11 +11,6 @@ export function Header() {
           <span className="font-bold text-xl">buidl.design</span>
         </div>
         
-        <nav className="hidden md:flex items-center space-x-8">
-          <a href="#features" className="hover:text-primary transition-colors">Features</a>
-          <a href="#community" className="hover:text-primary transition-colors">Community</a>
-          <a href="#projects" className="hover:text-primary transition-colors">Projects</a>
-        </nav>
         
         <Button>Get Started</Button>
       </div>
