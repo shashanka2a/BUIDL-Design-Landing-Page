@@ -1,9 +1,6 @@
 import Head from 'next/head'
 import { Hero } from '../src/components/Hero'
 import { Features } from '../src/components/Features'
-import { Community } from '../src/components/Community'
-import { TrendingProjects } from '../src/components/TrendingProjects'
-import { JoinCTA } from '../src/components/JoinCTA'
 import { Header } from '../src/components/Header'
 
 export default function HomePage() {
@@ -21,9 +18,6 @@ export default function HomePage() {
         <main>
           <Hero />
           <Features />
-          <Community />
-          <TrendingProjects />
-          <JoinCTA />
         </main>
       </div>
     </>
