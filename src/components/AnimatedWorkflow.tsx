@@ -13,113 +13,95 @@ export function AnimatedWorkflow() {
   }, [])
 
   return (
-    <div className="w-full max-w-6xl mx-auto">
-      <svg 
-        viewBox="0 0 900 350" 
-        className="w-full h-auto"
-        style={{ filter: 'drop-shadow(0 10px 30px rgba(139, 92, 246, 0.1))' }}
-      >
-        {/* Background */}
-        <rect width="900" height="350" fill="white" rx="20" />
+    <div className="w-full max-w-7xl mx-auto">
+      {/* Card-based Layout */}
+      <div className="grid md:grid-cols-3 gap-8 relative">
         
-        {/* Gradient Definitions */}
-        <defs>
-          <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#8b5cf6" />
-            <stop offset="100%" stopColor="#3b82f6" />
-          </linearGradient>
-          <linearGradient id="stepGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#8b5cf6" />
-            <stop offset="100%" stopColor="#3b82f6" />
-          </linearGradient>
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
-            <feMerge> 
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-          <filter id="hoverGlow">
-            <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
-            <feMerge> 
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-        </defs>
-        
-        {/* Flow Arrows Between Steps */}
-        <g stroke="url(#flowGradient)" strokeWidth="2" fill="none" opacity="0.6">
-          {/* Arrow 1 -> 2 */}
-          <path d="M 240 150 L 320 150" markerEnd="url(#arrowhead)">
-            <animate attributeName="stroke-dasharray" values="0,20;20,0;0,20" dur="4s" repeatCount="indefinite" />
-          </path>
-          {/* Arrow 2 -> 3 */}
-          <path d="M 580 150 L 660 150" markerEnd="url(#arrowhead)">
-            <animate attributeName="stroke-dasharray" values="0,20;20,0;0,20" dur="4s" repeatCount="indefinite" begin="1s" />
-          </path>
-        </g>
-        
-        {/* Arrow Marker Definition */}
-        <defs>
-          <marker id="arrowhead" markerWidth="10" markerHeight="7" 
-                  refX="10" refY="3.5" orient="auto">
-            <polygon points="0 0, 10 3.5, 0 7" fill="url(#flowGradient)" />
-          </marker>
-        </defs>
+        {/* Connecting Lines Between Cards */}
+        <div className="hidden md:block absolute top-1/2 left-1/3 w-16 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 opacity-60 transform -translate-y-1/2 z-10">
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-blue-400 opacity-40">
+            <div className="w-full h-full animate-pulse"></div>
+          </div>
+        </div>
+        <div className="hidden md:block absolute top-1/2 right-1/3 w-16 h-0.5 bg-gradient-to-r from-blue-400 to-green-400 opacity-60 transform -translate-y-1/2 z-10">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-green-400 opacity-40">
+            <div className="w-full h-full animate-pulse"></div>
+          </div>
+        </div>
 
-        {/* Step 1: User Typing on Laptop */}
-        <g transform="translate(80, 60)" 
-           className="cursor-pointer transition-all duration-300"
-           onMouseEnter={() => setHoveredStep(0)}
-           onMouseLeave={() => setHoveredStep(null)}>
+        {/* Step 1 Card */}
+        <div 
+          className={`bg-white rounded-2xl p-8 shadow-lg transition-all duration-300 cursor-pointer transform ${
+            hoveredStep === 0 || currentStep === 0 
+              ? 'shadow-2xl scale-105 shadow-purple-200' 
+              : 'hover:shadow-xl hover:scale-102'
+          }`}
+          onMouseEnter={() => setHoveredStep(0)}
+          onMouseLeave={() => setHoveredStep(null)}
+          style={{ minHeight: '280px' }}
+        >
+          {/* Step Icon */}
+          <div className="flex justify-center mb-6">
+            <svg 
+              viewBox="0 0 160 130" 
+              className="w-32 h-24"
+              style={{ filter: hoveredStep === 0 || currentStep === 0 ? 'drop-shadow(0 8px 20px rgba(139, 92, 246, 0.3))' : '' }}
+            >
+              {/* Laptop - Consistent Flat Design */}
+              <g>
+                {/* Laptop Base */}
+                <rect x="20" y="110" width="120" height="12" rx="6" 
+                      fill={currentStep === 0 || hoveredStep === 0 ? "#8b5cf6" : "#e5e7eb"} 
+                      className="transition-all duration-500"/>
+                {/* Laptop Screen Frame */}
+                <rect x="25" y="40" width="110" height="70" rx="8" 
+                      fill={currentStep === 0 || hoveredStep === 0 ? "#1e1b4b" : "#6b7280"} 
+                      className="transition-all duration-500"/>
+                {/* Screen */}
+                <rect x="30" y="45" width="100" height="60" rx="5" fill="#000000"/>
+                
+                {/* Code Lines with Consistent Style */}
+                <rect x="35" y="52" width="40" height="4" rx="2" fill="#3b82f6" 
+                      opacity={currentStep === 0 ? 1 : 0.4}>
+                  {currentStep === 0 && <animate attributeName="width" values="0;40;40" dur="1.2s" />}
+                </rect>
+                <rect x="35" y="62" width="60" height="4" rx="2" fill="#8b5cf6" 
+                      opacity={currentStep === 0 ? 1 : 0.4}>
+                  {currentStep === 0 && <animate attributeName="width" values="0;60;60" dur="1.5s" />}
+                </rect>
+                <rect x="35" y="72" width="35" height="4" rx="2" fill="#10b981" 
+                      opacity={currentStep === 0 ? 1 : 0.4}>
+                  {currentStep === 0 && <animate attributeName="width" values="0;35;35" dur="1s" />}
+                </rect>
+                <rect x="35" y="82" width="50" height="4" rx="2" fill="#f59e0b" 
+                      opacity={currentStep === 0 ? 1 : 0.4}>
+                  {currentStep === 0 && <animate attributeName="width" values="0;50;50" dur="1.3s" />}
+                </rect>
+                
+                {/* Typing Indicator */}
+                <rect x="85" y="82" width="2" height="4" fill="#ffffff" opacity={currentStep === 0 ? 1 : 0}>
+                  {currentStep === 0 && <animate attributeName="opacity" values="1;0;1" dur="0.8s" repeatCount="indefinite" />}
+                </rect>
+              </g>
+            </svg>
+          </div>
           
-          {/* Hover Glow Background */}
-          {(hoveredStep === 0 || currentStep === 0) && (
-            <circle cx="80" cy="75" r="90" fill="none" stroke="#8b5cf6" strokeWidth="2" opacity="0.2"
-                    filter="url(#hoverGlow)">
-              <animate attributeName="r" values="90;110;90" dur="3s" repeatCount="indefinite" />
-              <animate attributeName="opacity" values="0.2;0.05;0.2" dur="3s" repeatCount="indefinite" />
-            </circle>
-          )}
-          
-          {/* Laptop - Consistent Flat Design */}
-          <g>
-            {/* Laptop Base */}
-            <rect x="20" y="110" width="120" height="12" rx="6" 
-                  fill={currentStep === 0 || hoveredStep === 0 ? "#8b5cf6" : "#e5e7eb"} 
-                  className="transition-all duration-500"/>
-            {/* Laptop Screen Frame */}
-            <rect x="25" y="40" width="110" height="70" rx="8" 
-                  fill={currentStep === 0 || hoveredStep === 0 ? "#1e1b4b" : "#6b7280"} 
-                  className="transition-all duration-500"/>
-            {/* Screen */}
-            <rect x="30" y="45" width="100" height="60" rx="5" fill="#000000"/>
-            
-            {/* Code Lines with Consistent Style */}
-            <rect x="35" y="52" width="40" height="4" rx="2" fill="#3b82f6" 
-                  opacity={currentStep === 0 ? 1 : 0.4}>
-              {currentStep === 0 && <animate attributeName="width" values="0;40;40" dur="1.2s" />}
-            </rect>
-            <rect x="35" y="62" width="60" height="4" rx="2" fill="#8b5cf6" 
-                  opacity={currentStep === 0 ? 1 : 0.4}>
-              {currentStep === 0 && <animate attributeName="width" values="0;60;60" dur="1.5s" />}
-            </rect>
-            <rect x="35" y="72" width="35" height="4" rx="2" fill="#10b981" 
-                  opacity={currentStep === 0 ? 1 : 0.4}>
-              {currentStep === 0 && <animate attributeName="width" values="0;35;35" dur="1s" />}
-            </rect>
-            <rect x="35" y="82" width="50" height="4" rx="2" fill="#f59e0b" 
-                  opacity={currentStep === 0 ? 1 : 0.4}>
-              {currentStep === 0 && <animate attributeName="width" values="0;50;50" dur="1.3s" />}
-            </rect>
-            
-            {/* Typing Indicator */}
-            <rect x="85" y="82" width="2" height="4" fill="#ffffff" opacity={currentStep === 0 ? 1 : 0}>
-              {currentStep === 0 && <animate attributeName="opacity" values="1;0;1" dur="0.8s" repeatCount="indefinite" />}
-            </rect>
-          </g>
-        </g>
+          {/* Step Title Inside Card */}
+          <div className="text-center">
+            <h3 className={`text-xl font-bold transition-all duration-300 ${
+              currentStep === 0 || hoveredStep === 0 ? 'text-purple-600' : 'text-gray-900'
+            }`}>
+              <span className={`inline-block w-8 h-8 rounded-full text-sm font-bold flex items-center justify-center mr-2 ${
+                currentStep === 0 || hoveredStep === 0 
+                  ? 'bg-purple-600 text-white' 
+                  : 'bg-gray-200 text-gray-600'
+              }`}>
+                1
+              </span>
+              Type Your Idea
+            </h3>
+          </div>
+        </div>
 
         {/* Step 2: AI Network Nodes with Enhanced Animation */}
         <g transform="translate(380, 60)" 
