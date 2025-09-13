@@ -1,25 +1,49 @@
 import { Button } from './ui/button'
+import { useEffect, useState } from 'react'
 
 export function Hero() {
+  const [displayText, setDisplayText] = useState('')
+  const fullText = 'From Prompt to Product'
+  
+  useEffect(() => {
+    let currentIndex = 0
+    const typeWriter = () => {
+      if (currentIndex <= fullText.length) {
+        setDisplayText(fullText.slice(0, currentIndex))
+        currentIndex++
+      }
+    }
+    
+    const interval = setInterval(() => {
+      typeWriter()
+      if (currentIndex > fullText.length) {
+        clearInterval(interval)
+      }
+    }, 100)
+    
+    return () => clearInterval(interval)
+  }, [])
+  
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-background to-muted/30 py-24 md:py-32">
+    <section className="relative overflow-hidden bg-gradient-to-br from-background to-muted/30 py-32 md:py-40">
       <div className="container px-4 mx-auto">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-            From Prompt to Product{' '}
-            <span className="inline-block animate-bounce">⚡</span>
+        <div className="max-w-5xl mx-auto text-center">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8">
+            <span className="inline-block min-h-[1.2em]">{displayText}</span>
+            <span className="text-primary animate-pulse">|</span>{' '}
+            <span className="inline-block hover:scale-110 hover:-translate-y-1 transition-transform duration-150 cursor-default">⚡</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
             Transform your ideas into beautiful, functional designs with AI-powered tools. 
             Build faster, design smarter, create better.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <Button size="lg" className="text-lg px-8 py-6">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-20">
+            <Button size="lg" className="text-xl px-10 py-7 transition-all duration-200 hover:scale-105 hover:shadow-lg">
               Start Building
             </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-6">
+            <Button variant="outline" size="lg" className="text-xl px-10 py-7 transition-all duration-200 hover:scale-105 hover:bg-primary hover:text-primary-foreground">
               View Examples
             </Button>
           </div>

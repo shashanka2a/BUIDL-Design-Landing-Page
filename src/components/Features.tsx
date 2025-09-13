@@ -57,25 +57,25 @@ const features = [
 
 export function Features() {
   return (
-    <section id="features" className="py-24 bg-background">
+    <section id="features" className="py-32 bg-background">
       <div className="container px-4 mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Everything you need to build better
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Powerful features designed to streamline your design workflow and boost productivity.
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {features.map((feature, index) => (
-            <Card key={index} className="border-2 hover:border-primary/20 transition-colors">
+            <Card key={index} className="border-2 hover:border-primary/30 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 group">
               <CardHeader className="text-center">
-                <div className="mx-auto mb-4">
+                <div className="mx-auto mb-4 transition-transform duration-200 group-hover:scale-110 group-hover:rotate-3">
                   {feature.icon}
                 </div>
-                <CardTitle className="text-xl">{feature.title}</CardTitle>
+                <CardTitle className="text-xl group-hover:text-primary transition-colors">{feature.title}</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-center">

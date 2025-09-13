@@ -1,12 +1,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 import { Badge } from './ui/badge'
 import { Button } from './ui/button'
+import { useEffect, useState, useRef } from 'react'
 
 const communityStats = [
-  { label: 'Active Builders', value: '12,500+', color: 'bg-blue-500' },
-  { label: 'Projects Created', value: '45,000+', color: 'bg-green-500' },
-  { label: 'Code Generated', value: '2.3M+ lines', color: 'bg-purple-500' },
-  { label: 'Time Saved', value: '180,000+ hours', color: 'bg-orange-500' }
+  { label: 'Active Builders', value: '12,500+', targetNumber: 12500, color: 'bg-blue-500' },
+  { label: 'Projects Created', value: '45,000+', targetNumber: 45000, color: 'bg-green-500' },
+  { label: 'Code Generated', value: '2.3M+ lines', targetNumber: 2300000, suffix: ' lines', color: 'bg-purple-500' }
 ]
 
 const recentActivity = [
@@ -16,30 +16,86 @@ const recentActivity = [
   { user: 'jenny_code', action: 'published', project: 'Portfolio Template', time: '8 hours ago' }
 ]
 
+function AnimatedCounter({ targetNumber, suffix = '+' }: { targetNumber: number, suffix?: string }) {
+  const [count, setCount] = useState(0)
+  const [hasAnimated, setHasAnimated] = useState(false)
+  const counterRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true)
+          let start = 0
+          const duration = 2000
+          const increment = targetNumber / (duration / 16)
+          
+          const timer = setInterval(() => {
+            start += increment
+            if (start >= targetNumber) {
+              setCount(targetNumber)
+              clearInterval(timer)
+            } else {
+              setCount(Math.floor(start))
+            }
+          }, 16)
+          
+          return () => clearInterval(timer)
+        }
+      },
+      { threshold: 0.5 }
+    )
+    
+    if (counterRef.current) {
+      observer.observe(counterRef.current)
+    }
+    
+    return () => observer.disconnect()
+  }, [targetNumber, hasAnimated])
+  
+  const formatNumber = (num: number) => {
+    if (num >= 1000000) {
+      return (num / 1000000).toFixed(1) + 'M'
+    } else if (num >= 1000) {
+      return (num / 1000).toFixed(0) + 'K'
+    }
+    return num.toString()
+  }
+  
+  return (
+    <div ref={counterRef} className="text-2xl font-bold">
+      {formatNumber(count)}{suffix}
+    </div>
+  )
+}
+
 export function Community() {
   return (
-    <section id="community" className="py-24 bg-muted/30">
+    <section id="community" className="py-32 bg-muted/30">
       <div className="container px-4 mx-auto">
-        <div className="text-center mb-16">
-          <Badge className="mb-4 text-sm px-3 py-1 bg-primary/10 text-primary border-primary/20">
+        <div className="text-center mb-20">
+          <Badge className="mb-6 text-sm px-4 py-2 bg-primary/10 text-primary border-primary/20">
             #buidl
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Join the Builder Community
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Connect with thousands of creators, share your work, and get inspired by others.
           </p>
         </div>
         
         {/* Community Stats */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid md:grid-cols-3 gap-8 mb-20">
           {communityStats.map((stat, index) => (
-            <Card key={index} className="text-center">
-              <CardContent className="pt-6">
-                <div className={`w-3 h-3 ${stat.color} rounded-full mx-auto mb-2`}></div>
-                <div className="text-2xl font-bold">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+            <Card key={index} className="text-center group hover:shadow-lg transition-all duration-300">
+              <CardContent className="pt-8 pb-6">
+                <div className={`w-4 h-4 ${stat.color} rounded-full mx-auto mb-4`}></div>
+                <AnimatedCounter 
+                  targetNumber={stat.targetNumber} 
+                  suffix={stat.suffix || '+'} 
+                />
+                <div className="text-sm text-muted-foreground mt-2">{stat.label}</div>
               </CardContent>
             </Card>
           ))}
@@ -111,11 +167,6 @@ export function Community() {
                   </div>
                 ))}
                 
-                <div className="pt-4">
-                  <Button variant="outline" className="w-full">
-                    Join Discord Community
-                  </Button>
-                </div>
               </CardContent>
             </Card>
           </div>
